@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="switcher">
     <h1>{{ $route.params.state }}</h1>
     <router-link
       :to="{path: $route.params.state + '/' + station.triplet}"
@@ -12,6 +12,9 @@
       Elevation: {{ station.elevation }}
     </router-link>
   </div>
+  <div v-else>
+    <h1>Loading...</h1>
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -19,7 +22,8 @@ export default {
   name: "StateStations",
   data() {
     return {
-      stations: []
+      stations: [],
+      switcher: false
     };
   },
   mounted() {
@@ -37,6 +41,7 @@ export default {
           ) {
             this.stations.push(x);
           }
+          this.switcher = true;
         });
       });
     }
