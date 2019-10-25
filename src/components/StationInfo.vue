@@ -46,6 +46,7 @@ export default {
         .get(`http://api.powderlin.es/station/${this.$route.params.station}`)
         .then(response => {
           this.stationData = response.data;
+          this.stationData.data.reverse();
           this.switcher = true;
           axios
             .get(
