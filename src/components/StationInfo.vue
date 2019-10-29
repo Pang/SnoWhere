@@ -4,7 +4,7 @@
     <p>
       <b>Elevation:</b> {{ stationData.station_information.elevation }}<br>
       <b>Location:</b> {{ stationLocality }}<br>
-      <b>Coordinates:</b> LAT: {{ stationData.station_information.location.lat }}, LNG: {{ stationData.station_information.location.lng }}<br>
+      <b>LAT:</b> {{ stationData.station_information.location.lat }}, <b>LNG:</b> {{ stationData.station_information.location.lng }}<br>
     </p>
     <p
       class="recordings"
