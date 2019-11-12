@@ -1,14 +1,8 @@
 <template>
   <div class="hello">
     <h2>Select State</h2>
-    <select
-      @change="changeState()"
-      v-model="selectedPriority"
-    >
-      <option
-        v-for="state in states"
-        v-bind:key="state.abbr"
-      >
+    <select @change="changeState()" v-model="selectedPriority">
+      <option v-for="state in states" v-bind:key="state.abbr">
         {{ state.abbr }} : {{ state.state }}
       </option>
     </select><br>
