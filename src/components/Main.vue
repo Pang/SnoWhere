@@ -1,14 +1,21 @@
 <template>
   <div class="hello">
     <h2>Select State</h2>
-    <ul>
-      <li
-        v-for="(state, index) in states"
-        v-bind:key="index"
+    <select
+      @change="changeState()"
+      v-model="selectedPriority"
+    >
+      <option
+        v-for="state in states"
+        v-bind:key="state.abbr"
       >
-        <router-link :to="state.abbr">{{ state.state }}</router-link>
-      </li>
-    </ul>
+        {{ state.abbr }} : {{ state.state }}
+      </option>
+    </select><br>
+    <router-link :to="selectedState">
+      <button>Find Stations</button>
+    </router-link>
+
     <p style="margin-top:100px;">
       This applications uses the PowderLines API
       <a href="http://powderlin.es/api.html">http://powderlin.es/api.html</a> to find the most ideal snow in the US
@@ -19,14 +26,22 @@
 <script>
 import statesData from "../data/states.json";
 export default {
-  name: "HelloWorld",
+  name: "Main",
   data() {
     return {
-      states: statesData
+      states: statesData,
+      selectedPriority: "CO : Colorado",
+      selectedState: "CO"
     };
   },
   props: {
     msg: String
+  },
+  methods: {
+    changeState() {
+      window.console.log("selectedPriority");
+      this.selectedState = this.selectedPriority.slice(0, 2);
+    }
   }
 };
 </script>

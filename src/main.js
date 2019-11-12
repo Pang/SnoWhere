@@ -1,7 +1,7 @@
 import './plugins/axios';
 
 import App from './App.vue';
-import HelloWorld from './components/HelloWorld';
+import Main from './components/Main';
 import StateStations from './components/StateStations.vue';
 import StationInfo from './components/StationInfo.vue';
 import Vue from 'vue';
@@ -11,8 +11,8 @@ import axios from './plugins/axios';
 Vue.use(VueRouter);
 const routes = [{
     path: '/',
-    name: "Helloworld",
-    component: HelloWorld
+    name: "Main",
+    component: Main
   }, {
     path: '/:state',
     name: "StateStations",
